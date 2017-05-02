@@ -1,0 +1,20 @@
+{
+    "name": "vio/sms-registration-confirmation",
+    "description": "Package that adds sms registration confirmation feature",
+    "authors": [
+        {
+            "name": "Vio Delos Reyes II",
+            "email": "vio.delos.reyes2@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+      "php": ">=5.6.4",
+      "illuminate/support": "~5.4"
+    },
+    "autoload": {
+      "psr-4": {
+        "Vio\\SmsRegistrationConfirmation\\": "src/"
+      }
+    }
+}
