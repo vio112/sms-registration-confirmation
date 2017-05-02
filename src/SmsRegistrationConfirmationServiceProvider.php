@@ -20,7 +20,11 @@ class SmsRegistrationConfirmationServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/views', 'package');
 
         $this->publishes([
-            __DIR__.'/views' => resource_path('views/vendor/package'),
+            __DIR__.'/views' => resource_path('views/vendor'),
+        ]);
+
+        $this->publishes([
+            __DIR__.'/assets' => public_path('vendor/assets'),
         ]);
     }
 
