@@ -17,11 +17,15 @@ class SmsRegistrationConfirmationServiceProvider extends ServiceProvider
 
         $this->loadMigrationsFrom(__DIR__.'/migrations');
 
-        $this->loadViewsFrom(__DIR__.'/views', 'sms-registration-confirmation');
+        $this->loadViewsFrom(__DIR__.'/views/auth', 'sms-registration-confirmation');
 
-        $this->publishes([__DIR__.'/views' => resource_path('views/vendor/sms-registration-confirmation')], 'vio-views');
+        $this->publishes([__DIR__.'/views/auth' => resource_path('views/vendor/sms-registration-confirmation/views')], 'vio-views');
 
-        $this->publishes([__DIR__.'/assets' => public_path('vio/sms-registration-confirmation/assets')], 'vio-assets');
+        $this->publishes([__DIR__.'/views/mail' => resource_path('views/vendor/sms-registration-confirmation/mail')], 'vio-mail');
+
+        $this->publishes([__DIR__.'/assets' => public_path('vio/sms-registration-confirmation/assets')], 'vio-formHelper');
+
+        $this->publishes([__DIR__.'/scripts' => public_path('vio/sms-registration-confirmation/scripts')], 'vio-scraper');
     }
 
     /**

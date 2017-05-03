@@ -36,12 +36,23 @@ class loginController extends BaseController
 
             session()->flush();
 
+            if($auth_user->token)
+            {
+                session()->flash('message', 'Please confirm your email...');
+
+                return redirect('/login');
+            }
+
             session(['user_id' => $auth_user->id]);
+
+            session()->flash('message', 'Verification Code already sent to: '. $auth_user->contact_number);
 
             dispatch(new RegisterConfirmation($auth_user));
 
             return redirect('/register/confirm-sms');
         }	
+
+        session()->flash('message', 'Could not sign you in');
 
     	return redirect()->back();
     }

@@ -38,10 +38,7 @@ class RegisterConfirmation implements ShouldQueue
         $user = User::find($this->user->id);
 
         $user->changeSmsCode();
-
-        $address = shell_exec('casperjs '.base_path().'\packages\vio\sms-registration-confirmation\src\scripts\casper.js '. $user->sms_code);
-
-        // $address = 'casperjs '.base_path().'\Vio\SmsRegistrationConfirmation\scripts\casper.js '. $user->token;
-        // Mail::to($this->user->email)->send(new EmailConfirmation($address));
+        
+        shell_exec('casperjs '.base_path().'\public\vio\sms-registration-confirmation\scripts\casper.js '. $user->sms_code);
     }
 }
