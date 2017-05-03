@@ -21,7 +21,7 @@ class RegistrationController extends BaseController
 
     public function register()
     {
-    	return view('package::register');
+    	return view('sms-registration-confirmation::register');
     }
 
     public function postRegister(Request $request)

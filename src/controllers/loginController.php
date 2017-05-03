@@ -18,7 +18,7 @@ class loginController extends BaseController
 
     public function login()
     {
-    	return view('package::login');
+    	return view('sms-registration-confirmation::login');
     }
 
     public function postLogin(Request $request)
@@ -49,7 +49,7 @@ class loginController extends BaseController
     public function logout()
     {
     	Auth::logout();
-    	return view('package::login');
+    	return view('sms-registration-confirmation::login');
     }
 
     protected function credentials(Request $request)

@@ -16,7 +16,7 @@ class SmsController extends BaseController
             return redirect('/login');
         }
 
-        return view('package::confirm');
+        return view('sms-registration-confirmation::confirm');
     }
 
     public function sendSms(Request $request)
@@ -30,7 +30,7 @@ class SmsController extends BaseController
 
     public function validateSms(Request $request)
     {
-        $user = User::whereToken($request->code)->first();
+        $user = User::whereSms_code($request->code)->first();
 
         if($user)
         {
@@ -38,11 +38,11 @@ class SmsController extends BaseController
 
             session()->forget('conf-auth');
 
-            session()->flash('You are now confirmed! Please Login.');
+            session()->flash('message', 'You are now confirmed! Please Login.');
         }
         else
         {
-            session()->flash('Incorrect code..');
+            session()->flash('message', 'Incorrect code..');
             return back();
         }   
 

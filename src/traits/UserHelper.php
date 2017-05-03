@@ -24,7 +24,7 @@ trait UserHelper
 	public function confirmSms()
 	{
 	    $this->is_activated = true;
-	    $this->token = null;
+	    $this->sms_code = null;
 	    $this->save();
 	}
 

@@ -32,6 +32,6 @@ class EmailConfirmation extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.confirmation');
+        return $this->view('vendor.sms-registration-confirmation.mail.confirmation');
     }
 }
